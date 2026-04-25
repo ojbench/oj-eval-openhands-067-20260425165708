@@ -221,38 +221,8 @@ public:
     }
 };
 
-// Simple test function
+// Dummy main function for compilation - will be overridden by test harness
 int main() {
-    try {
-        RefCell<int> cell(42);
-        
-        // Test basic borrowing
-        {
-            auto ref1 = cell.borrow();
-            std::cout << "Value: " << *ref1 << std::endl;
-            
-            // Test multiple immutable borrows
-            auto ref2 = ref1;  // Copy constructor
-            std::cout << "Value (copy): " << *ref2 << std::endl;
-            
-            // Test mutable borrow after immutable borrows are done
-            {
-                auto mut_ref = cell.try_borrow_mut();
-                if (!mut_ref) {
-                    std::cout << "Cannot borrow mutably while immutable borrows exist" << std::endl;
-                }
-            }
-        } // ref1 and ref2 are destroyed here
-        
-        // After immutable borrows are destroyed
-        auto mut_ref = cell.borrow_mut();
-        *mut_ref = 100;
-        std::cout << "Modified value: " << *mut_ref << std::endl;
-        
-    } catch (const std::exception& e) {
-        std::cout << "Error: " << e.what() << std::endl;
-        return 1;
-    }
-    
     return 0;
 }
+
