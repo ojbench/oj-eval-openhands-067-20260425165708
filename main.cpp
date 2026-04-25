@@ -221,10 +221,17 @@ public:
     }
 };
 
-// Dummy main for compilation - test harness will override
+// This file provides the RefCell implementation
+// The test harness will include this file and provide main()
+
+// Dummy main for local compilation only
+#ifndef OJ_TEST_HARNESS
 int main() {
     return 0;
 }
+#endif
+
+
 
 
 
