@@ -224,8 +224,7 @@ public:
 // This file provides the RefCell implementation
 // The test harness will include this file and provide main()
 
-// Dummy main for local compilation only
-#ifndef OJ_TEST_HARNESS
+#ifdef LOCAL_TEST
 int main() {
     return 0;
 }

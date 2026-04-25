@@ -8,3 +8,6 @@ add_executable(code main.cpp)
 
 # Set compiler flags
 target_compile_options(code PRIVATE -Wall -Wextra -O2)
+
+# Add dummy main for local testing
+target_compile_definitions(code PRIVATE LOCAL_TEST)
